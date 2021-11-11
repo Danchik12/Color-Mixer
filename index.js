@@ -9,8 +9,30 @@ var B=document.getElementById('B');
 var r=R.value;
 var g=G.value;
 var b=B.value;
+
+//copy HEX 
+function copy(){
+	var copyHex = document.getElementById('copyHex');
+	copyHex.select();
+	copyHex.setSelectionRange(0, 99999)
+	document.execCommand("copy");
+	
+}
+
+//rgb to Hex
+function rgbToHex(r,g,b) 
+{
+	 var rgb = b| (g << 8) | (r << 16);
+        return '#' + (0x1000000 + rgb).toString(16).slice(1)
+}
+
+hex=rgbToHex(r,g,b)
+
+
 //подсказка
-html=`<span>R: ${r} G: ${g} B: ${b}</span>`;
+html=`
+HEX: <input type='text' id='copyHex' onclick='copy()'  value='${hex}'></input>
+<span>R: ${r} G: ${g} B: ${b}</span>`;
 container.innerHTML=html;
 //Обновляем цвет фона
 color =`rgb(${r}, ${g}, ${b})`;
@@ -22,7 +44,11 @@ function Change_Color(){
 var r=R.value;
 var g=G.value;
 var b=B.value;
-html=`<span>R: ${r} G: ${g} B: ${b}</span>`;
+hex=rgbToHex(r,g,b)
+
+html=`
+HEX: <input type='text'  onclick='copy()'  id='copyHex' value='${hex}'></input>
+<span>R: ${r} G: ${g} B: ${b}</span>`;
 container.innerHTML=html;
 color =`rgb(${r}, ${g}, ${b})`;
 cvs.style.background=color;

@@ -4,6 +4,7 @@ label {
 
 input {
     margin: .4rem;
+    
 }
 
  #osnova{
@@ -11,15 +12,10 @@ input {
     display: inline;
     
 }
-#settings{
-    padding-top: 50px;
-    padding-left: 50px;
-    
-    width: 250px;
-    height: 150px;
-    }
+
 
 #canvas-container {
    width: 100%;
    text-align:center;
 }
+
